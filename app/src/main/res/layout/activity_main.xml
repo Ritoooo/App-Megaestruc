@@ -6,13 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+    <Button
+        android:id="@+id/btnCoti"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="182dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="35dp"
+        android:background="@android:color/holo_blue_dark"
+        android:onClick="irCoti"
+        android:text="Cotización"
+        app:layout_constraintBottom_toTopOf="@+id/btnProd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btnProd"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="40dp"
+        android:background="@android:color/holo_blue_dark"
+        android:onClick="irProd"
+        android:text="Productos"
+        app:layout_constraintBottom_toTopOf="@+id/btnClie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCoti" />
+
+    <Button
+        android:id="@+id/btnClie"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="324dp"
+        android:background="@android:color/holo_blue_dark"
+        android:onClick="irClie"
+        android:text="Clientes"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnProd" />
 </android.support.constraint.ConstraintLayout>
