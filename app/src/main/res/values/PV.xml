@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="PV">
+        <item>2cm x 2cm</item>
+        <item>3cm x 3cm</item>
+        <item>4cm x 5cm</item>
+        <item>5cm x 5cm</item>
+        <item>----------</item>
+    </string-array>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Categorias">
+        <item>Estructuras Pesadas</item>
+        <item>Estructuras Medianas</item>
+        <item>Estructuras Ligeras</item>
+        <item>Estructuras Especiales</item>
+        <item>Muebles Metalicos</item>
+    </string-array>
+
+
+
+</resources>

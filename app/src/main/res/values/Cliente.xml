@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Clientes">
+        <item>PETRAMAX SAC </item>
+        <item>BACKUS SAA </item>
+        <item>MOTTA SAC </item>
+        <item>ACEROS AREQUIPA</item>
+        <item>CEMENTO SOL</item>
+    </string-array>
+
+</resources>

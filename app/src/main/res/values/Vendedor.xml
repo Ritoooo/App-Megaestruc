@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Vendedor">
+        <item>Renato Padron</item>
+        <item>Jose Luis Flores</item>
+        <item>Guillermo Padron</item>
+        <item>Consuelo Canales</item>
+        <item>Jose Velarde</item>
+    </string-array>
+
+</resources>

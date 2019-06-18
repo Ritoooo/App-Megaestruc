@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Niveles">
+        <item>Estandar 3N </item>
+        <item>Mini 2N</item>
+        <item>Especial 4N</item>
+        <item>Estructural 5N</item>
+    </string-array>
+</resources>
