@@ -34,33 +34,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void obtenerDatosVolley(){
 
-        String url = "http://megaestruc.herokuapp.com/api/distrito/";
+        String url = "http://megaestruc.herokuapp.com/api/producto/";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
             public void onResponse(JSONObject response) {
 
                 try{
-
-                    Log.e("Error", "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE: ");
-
-                    /*JSONArray mJsonArray = response.getJSONArray("contacts");
-                    for(int i = 0; i < mJsonArray.length(); i++){
-                        JSONObject mJsonObject = mJsonArray.getJSONObject(i);
-                        String name = mJsonObject.getString("name");
-                        Toast.makeText(MainActivity.this, "Nombre: "+name, Toast.LENGTH_SHORT).show();*/
-                    JSONArray mJsonArray = new JSONArray(response);
-
+                    JSONArray mJsonArray = response.getJSONArray("productos");
                     for(int i = 0; i < mJsonArray.length(); i++){
                         JSONObject mJsonObject = mJsonArray.getJSONObject(i);
                         String name = mJsonObject.getString("nombre");
-                        Toast.makeText(MainActivity.this, "Nombre: "+name, Toast.LENGTH_SHORT).show();
-
+                        String descripcion = mJsonObject.getString("descripcion");
+                        int stock = mJsonObject.getInt("stock");
+                        double preVen = mJsonObject.getDouble("preVen");
+                        Toast.makeText(MainActivity.this, "Nombre: "+name+"\nDescripción: "+descripcion+"\nStock: "+stock+"\nPrecio de Venta: "+preVen, Toast.LENGTH_SHORT).show();
                     }
                 }catch (JSONException e){
-                    Toast.makeText(MainActivity.this, "ERRORRRRRRR: ", Toast.LENGTH_SHORT).show();
-                    Log.e("Error", "ERROR: ");
-                    //e.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }, new Response.ErrorListener() {
@@ -73,17 +64,9 @@ public class MainActivity extends AppCompatActivity {
         queue.add(request);
     }
 
-    public void irCoti(View view){
-        Intent objCoti = new Intent(this,Cotizacion.class);
-        startActivity(objCoti);
-    }
-    public void irProd(View view){
-        Intent objCoti = new Intent(this,Producto.class);
-        startActivity(objCoti);
-    }
-    public void irClie(View view){
-        Intent objCoti = new Intent(this, Clientes.class);
-        startActivity(objCoti);
+    public void irCoti(View view){  navegar(Cotizacion.class);    }
+    public void irProd(View view){  navegar(Producto.class);    }
+    public void irClie(View view){  navegar(Clientes.class);    }
 
-    }
+    public void navegar(Class activity){startActivity(new Intent(this, activity));}
 }
