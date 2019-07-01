@@ -34,6 +34,6 @@ public class ListarProducto extends BaseActivity<ListaProductosPresenter> implem
     @NonNull
     @Override
     protected ListaProductosPresenter createPresenter(@NonNull Context context) {
-        return new ListaProductosPresenter(this, new ListarProducto());
+        return null;
     }
 }
