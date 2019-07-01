@@ -10,7 +10,7 @@ import com.megaestruc.megaestruc_app.presentador.ListaProductosPresenter;
 
 public class ListarProducto extends BaseActivity<ListaProductosPresenter> implements ListarProductoView {
 
-    
+
     @Override
     public void mostrarProgressBar() {
 
@@ -34,6 +34,6 @@ public class ListarProducto extends BaseActivity<ListaProductosPresenter> implem
     @NonNull
     @Override
     protected ListaProductosPresenter createPresenter(@NonNull Context context) {
-        return null;
+        return new ListaProductosPresenter(this, new ListarProducto());
     }
 }
