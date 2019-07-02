@@ -27,7 +27,7 @@ public class ListaProductos extends BaseActivity<ListaProductosPresenter> implem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_productos);
-        pgcargar = (ProgressBar)findViewById(R.id.pgListaProductosCargando);
+        //pgcargar = (ProgressBar)findViewById(R.id.pgListaProductosCargando);
     }
 
     @Override
