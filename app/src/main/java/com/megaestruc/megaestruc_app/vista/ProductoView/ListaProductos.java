@@ -6,12 +6,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.megaestruc.megaestruc_app.Interface.ListarProductoView;
+import com.megaestruc.megaestruc_app.MainActivity;
 import com.megaestruc.megaestruc_app.Producto;
 import com.megaestruc.megaestruc_app.R;
 import com.megaestruc.megaestruc_app.base.BaseActivity;
+import com.megaestruc.megaestruc_app.modelo.ProductoInteractor;
 import com.megaestruc.megaestruc_app.presentador.ListaProductosPresenter;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class ListaProductos extends BaseActivity<ListaProductosPresenter> implements ListarProductoView {
 
@@ -20,7 +26,7 @@ public class ListaProductos extends BaseActivity<ListaProductosPresenter> implem
     @NonNull
     @Override
     protected ListaProductosPresenter createPresenter(@NonNull Context context) {
-        return null;
+        return new ListaProductosPresenter(this, new ProductoInteractor());
     }
 
     @Override
@@ -41,8 +47,19 @@ public class ListaProductos extends BaseActivity<ListaProductosPresenter> implem
     }
 
     @Override
-    public void mostrarProductos() {
+    public void mostrarProductos(JSONArray productos) {
+        try{
+            for(int i = 0; i < productos.length(); i++){
+                JSONObject mJsonObject = productos.getJSONObject(i);
+                String name = mJsonObject.getString("nombre");
+                String descripcion = mJsonObject.getString("descripcion");
+                int stock = mJsonObject.getInt("stock");
+                double preVen = mJsonObject.getDouble("preVen");
+                Toast.makeText(ListaProductos.this, "Nombre: "+name+"\nDescripción: "+descripcion+"\nStock: "+stock+"\nPrecio de Venta: "+preVen, Toast.LENGTH_SHORT).show();
+            }
+        }catch (Exception e){
 
+        }
     }
 
     @Override
