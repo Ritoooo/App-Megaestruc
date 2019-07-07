@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.megaestruc.megaestruc_app.vista.ClienteView.Clientes;
+import com.megaestruc.megaestruc_app.vista.ProductoView.ListaProductos;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         String url = "http://megaestruc.herokuapp.com/api/producto/";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-
+            @Override
             public void onResponse(JSONObject response) {
 
                 try{
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void irCoti(View view){  navegar(Cotizacion.class);    }
-    public void irProd(View view){  navegar(Producto.class);    }
+    public void irProd(View view){  navegar(ListaProductos.class);    }
     public void irClie(View view){  navegar(Clientes.class);    }
 
     public void navegar(Class activity){startActivity(new Intent(this, activity));}
