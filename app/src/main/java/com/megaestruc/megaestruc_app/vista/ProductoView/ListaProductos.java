@@ -9,6 +9,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.megaestruc.megaestruc_app.Interface.ProductoInterface;
 import com.megaestruc.megaestruc_app.modelo.Producto;
 import com.megaestruc.megaestruc_app.R;
@@ -55,7 +57,7 @@ public class ListaProductos extends BaseActivity<ListaProductosPresenter> implem
     }
 
     @Override
-    public void mostrarProductos(Producto productos) {
+    public void mostrarProductos(JsonObject productos) {
 
         Toast.makeText(ListaProductos.this, "HOLA XD", Toast.LENGTH_SHORT).show();
         Toast.makeText(ListaProductos.this, "hey: "+productos, Toast.LENGTH_SHORT).show();

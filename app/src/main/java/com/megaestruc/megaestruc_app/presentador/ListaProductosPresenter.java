@@ -1,5 +1,7 @@
 package com.megaestruc.megaestruc_app.presentador;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.megaestruc.megaestruc_app.Interface.ProductoInterface;
 import com.megaestruc.megaestruc_app.base.BasePresenter;
 import com.megaestruc.megaestruc_app.modelo.Producto;
@@ -30,7 +32,7 @@ public class ListaProductosPresenter extends BasePresenter  implements ProductoI
     }*/
 
     @Override
-    public void onSuccess(Producto producto) {
+    public void onSuccess(JsonObject producto) {
         view.esconderProgressBar();
         view.mostrarProductos(producto);
     }

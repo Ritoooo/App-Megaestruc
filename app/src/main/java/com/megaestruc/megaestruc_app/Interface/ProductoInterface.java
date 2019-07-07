@@ -1,5 +1,7 @@
 package com.megaestruc.megaestruc_app.Interface;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.megaestruc.megaestruc_app.modelo.Producto;
 
 import org.json.JSONArray;
@@ -13,7 +15,7 @@ public interface ProductoInterface {
 
     void mostrarProgressBar();
     void esconderProgressBar();
-    void mostrarProductos(Producto productos);
+    void mostrarProductos(JsonObject productos);
     void listarProductos(Producto productoista);
     void fetchProductos();
     void mostrarError();

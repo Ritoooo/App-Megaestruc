@@ -8,6 +8,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.RequestQueue;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.megaestruc.megaestruc_app.BuildConfig;
 import com.megaestruc.megaestruc_app.Interface.ProductoApi;
 import com.megaestruc.megaestruc_app.MainActivity;
@@ -30,7 +32,7 @@ public class ProductoInteractor {
     private static final String BASE_URL = "http://megaestruc.herokuapp.com/";
 
     public interface onDetailFetched{
-        void onSuccess(Producto producto);
+        void onSuccess(JsonObject producto);
         void onFailure();
     }
 
@@ -63,25 +65,26 @@ public class ProductoInteractor {
                 .build();
 
         ProductoApi service = retrofit.create(ProductoApi.class);
-        Call<Producto> call = service.getProductos();
-        call.enqueue(new Callback<Producto>() {
+        Call<JsonObject> call = service.getProductos();
+        call.enqueue(new Callback<JsonObject>() {
             @Override
-            public void onResponse(Call<Producto> call, retrofit2.Response<Producto> response) {
+            public void onResponse(Call<JsonObject> call, retrofit2.Response<JsonObject> response) {
                 if(!response.isSuccessful()){
                     listener.onFailure();
                     Log.e(TAG, "onFailure pero de response: "+response);
                     return;
                 }
                 //List<Producto> listProducto = (response).body();
-                Producto producto = (Producto) response.body();
+                JsonObject producto =  response.body();
 
                 if(producto!=null)
                     listener.onSuccess(producto);
-                Log.e(TAG, "Response : "+response.body());
+
+                Log.e(TAG, "Response : "+producto);
             }
 
             @Override
-            public void onFailure(Call<Producto> call, Throwable t) {
+            public void onFailure(Call<JsonObject> call, Throwable t) {
                 listener.onFailure();
                 Log.e(TAG, "onFailure pero failure: "+t.getMessage());
             }
