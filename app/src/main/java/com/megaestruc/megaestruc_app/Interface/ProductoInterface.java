@@ -6,6 +6,7 @@ import com.megaestruc.megaestruc_app.modelo.Producto;
 
 import org.json.JSONArray;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -15,7 +16,7 @@ public interface ProductoInterface {
 
     void mostrarProgressBar();
     void esconderProgressBar();
-    void mostrarProductos(JsonObject productos);
+    void mostrarProductos(ArrayList<Producto> productos);
     void listarProductos(Producto productoista);
     void fetchProductos();
     void mostrarError();

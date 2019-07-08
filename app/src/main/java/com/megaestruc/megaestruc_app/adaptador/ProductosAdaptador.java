@@ -1,5 +1,6 @@
 package com.megaestruc.megaestruc_app.adaptador;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,13 +8,64 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.megaestruc.megaestruc_app.Producto;
 import com.megaestruc.megaestruc_app.R;
+import com.megaestruc.megaestruc_app.modelo.Producto;
 
 import java.util.List;
 
-public class ProductosAdaptador extends RecyclerView.Adapter<ProductosAdaptador.ProductosHolder> {
-    List<Producto> listaProductos;
+public class ProductosAdaptador extends RecyclerView.Adapter<ProductosAdaptador.ViewHolder>{
+
+    private Context context;
+    private List<Producto> data;
+
+
+
+    public ProductosAdaptador(Context context, List<Producto> data) {
+        this.context = context;
+        this.data = data;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view;
+        LayoutInflater inflater = LayoutInflater.from(context);
+        view = inflater.inflate(R.layout.card_rows,viewGroup,false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+        viewHolder.nombre.setText(data.get(position).getNombre());
+        viewHolder.descripcion.setText(data.get(position).getDescripcion());
+        viewHolder.preVen.setText(data.get(position).getDescripcion());
+        viewHolder.stock.setText(data.get(position).getNombre());
+    }
+
+    @Override
+    public int getItemCount() {
+        return data.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder{
+
+        TextView nombre;
+        TextView descripcion;
+        TextView preVen;
+        TextView stock;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            nombre = itemView.findViewById(R.id.txtNombre);
+            descripcion = itemView.findViewById(R.id.txtDescripcion);
+            preVen = itemView.findViewById(R.id.txtPrecio);
+            stock = itemView.findViewById(R.id.txtStock);
+        }
+    }
+
+}
+/*public class ProductosAdaptador{ //extends RecyclerView.Adapter<ProductosAdaptador.ProductosHolder> {
+    /*List<Producto> listaProductos;
     public ProductosAdaptador(List<Producto> listaProductos){
         this.listaProductos = listaProductos;
     }
@@ -32,7 +84,7 @@ public class ProductosAdaptador extends RecyclerView.Adapter<ProductosAdaptador.
         /*holder.txtNombre.setText(listaProductos.get(posotion).getNombre());
         holder.txtDescripcion.setText(listaProductos.get(posotion).getDescripcion());
         holder.txtPrecio.setText(listaProductos.get(posotion).getPrecio());
-        holder.txtStock.setText(listaProductos.get(posotion).getStock());*/
+        holder.txtStock.setText(listaProductos.get(posotion).getStock());
     }
 
     @Override
@@ -50,5 +102,4 @@ public class ProductosAdaptador extends RecyclerView.Adapter<ProductosAdaptador.
             txtPrecio = itemView.findViewById(R.id.txtPrecio);
             txtStock = itemView.findViewById(R.id.txtStock);
         }
-    }
-}
+    }*/

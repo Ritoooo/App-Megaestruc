@@ -18,6 +18,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import retrofit2.Call;
@@ -28,65 +30,38 @@ import retrofit2.http.GET;
 
 public class ProductoInteractor {
     private static final String TAG = "ProductoInteractor";
-    private RequestQueue queue;
     private static final String BASE_URL = "http://megaestruc.herokuapp.com/";
 
     public interface onDetailFetched{
-        void onSuccess(JsonObject producto);
+        void onSuccess(ArrayList<Producto> producto);
         void onFailure();
     }
 
     public void remoteFetch(final onDetailFetched listener){
-        /*String url = "http://megaestruc.herokuapp.com/api/producto/";
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url,null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try{
-                    JSONArray mJsonArray = response.getJSONArray("productos");
-                    listener.onSuccess(mJsonArray);
-                }catch (JSONException e){
-                    e.printStackTrace();
-                    listener.onFailure();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                listener.onFailure();
-                Log.e("Error", "onErrorResponse: ", error);
-            }
-        }
-        );
-        queue.add(request);*/
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        ProductoApi service = retrofit.create(ProductoApi.class);
-        Call<JsonObject> call = service.getProductos();
-        call.enqueue(new Callback<JsonObject>() {
+        final ProductoApi service = retrofit.create(ProductoApi.class);
+        Call<ArrayList<Producto>> call = service.getProductos();
+        call.enqueue(new Callback<ArrayList<Producto>>() {
             @Override
-            public void onResponse(Call<JsonObject> call, retrofit2.Response<JsonObject> response) {
+            public void onResponse(Call<ArrayList<Producto>> call, retrofit2.Response<ArrayList<Producto>> response) {
                 if(!response.isSuccessful()){
                     listener.onFailure();
-                    Log.e(TAG, "onFailure pero de response: "+response);
+                    Log.e(TAG, "onFailure pero de response : "+response);
                     return;
                 }
-                //List<Producto> listProducto = (response).body();
-                JsonObject producto =  response.body();
-
+                ArrayList<Producto> producto =  response.body();
                 if(producto!=null)
                     listener.onSuccess(producto);
-
-                Log.e(TAG, "Response : "+producto);
+                Log.e(TAG, producto.get(10).getNombre());
             }
-
             @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Producto>> call, Throwable t) {
                 listener.onFailure();
-                Log.e(TAG, "onFailure pero failure: "+t.getMessage());
+                Log.e(TAG, "onFailure pero failure: "+t.getMessage()+" ...");
             }
         });
     }

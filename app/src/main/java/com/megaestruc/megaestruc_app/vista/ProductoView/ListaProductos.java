@@ -3,15 +3,14 @@ package com.megaestruc.megaestruc_app.vista.ProductoView;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import android.support.v7.widget.RecyclerView;
 import com.megaestruc.megaestruc_app.Interface.ProductoInterface;
+import com.megaestruc.megaestruc_app.adaptador.ProductosAdaptador;
 import com.megaestruc.megaestruc_app.modelo.Producto;
 import com.megaestruc.megaestruc_app.R;
 import com.megaestruc.megaestruc_app.base.BaseActivity;
@@ -20,6 +19,7 @@ import com.megaestruc.megaestruc_app.presentador.ListaProductosPresenter;
 
 import org.json.JSONArray;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -27,7 +27,7 @@ import retrofit2.Call;
 public class ListaProductos extends BaseActivity<ListaProductosPresenter> implements ProductoInterface {
 
     ProgressBar pgcargar;
-    private TextView mJsonTxtView;
+    private RecyclerView rvLista;
 
     @NonNull
     @Override
@@ -39,10 +39,8 @@ public class ListaProductos extends BaseActivity<ListaProductosPresenter> implem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_productos);
-        //pgcargar = (ProgressBar)findViewById(R.id.)
         pgcargar = (ProgressBar)findViewById(R.id.pgcargar);
-        mJsonTxtView = findViewById(R.id.jsonText);
-        //Toast.makeText(ListaProductos.this, "ERRORES XD", Toast.LENGTH_SHORT).show();
+        rvLista = findViewById(R.id.rvLista);
         fetchProductos();
     }
 
@@ -57,11 +55,15 @@ public class ListaProductos extends BaseActivity<ListaProductosPresenter> implem
     }
 
     @Override
-    public void mostrarProductos(JsonObject productos) {
+    public void mostrarProductos(ArrayList<Producto> productos) {
 
-        Toast.makeText(ListaProductos.this, "HOLA XD", Toast.LENGTH_SHORT).show();
         Toast.makeText(ListaProductos.this, "hey: "+productos, Toast.LENGTH_SHORT).show();
 
+        ProductosAdaptador adaptador = new ProductosAdaptador(this, productos);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        rvLista.setLayoutManager(llm);
+        rvLista.setAdapter(adaptador);
     }
 
     @Override

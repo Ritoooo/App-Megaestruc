@@ -9,6 +9,7 @@ import com.megaestruc.megaestruc_app.modelo.ProductoInteractor;
 
 import org.json.JSONArray;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListaProductosPresenter extends BasePresenter  implements ProductoInteractor.onDetailFetched{
@@ -32,7 +33,7 @@ public class ListaProductosPresenter extends BasePresenter  implements ProductoI
     }*/
 
     @Override
-    public void onSuccess(JsonObject producto) {
+    public void onSuccess(ArrayList<Producto> producto) {
         view.esconderProgressBar();
         view.mostrarProductos(producto);
     }

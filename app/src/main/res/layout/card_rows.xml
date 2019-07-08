@@ -3,4 +3,30 @@
 android:layout_width="match_parent"
 android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="NOMBRE"
+            android:id="@+id/txtNombre"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="DESCRIPCION"
+            android:id="@+id/txtDescripcion"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="PRECIO DE VENTA"
+            android:id="@+id/txtPrecio"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="STOCK"
+            android:id="@+id/txtStock"/>
+    </LinearLayout>
 </LinearLayout>
