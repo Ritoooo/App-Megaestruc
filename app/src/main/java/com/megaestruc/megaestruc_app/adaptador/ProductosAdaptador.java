@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.megaestruc.megaestruc_app.R;
@@ -48,7 +49,7 @@ public class ProductosAdaptador extends RecyclerView.Adapter<ProductosAdaptador.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-
+        LinearLayout card;
         TextView nombre;
         TextView descripcion;
         TextView preVen;
@@ -56,6 +57,7 @@ public class ProductosAdaptador extends RecyclerView.Adapter<ProductosAdaptador.
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            card = itemView.findViewById(R.id.card);
             nombre = itemView.findViewById(R.id.txtNombre);
             descripcion = itemView.findViewById(R.id.txtDescripcion);
             preVen = itemView.findViewById(R.id.txtPrecio);

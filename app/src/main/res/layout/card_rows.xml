@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
-android:layout_height="match_parent">
+android:layout_height="90dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="80dp"
+        android:orientation="vertical"
+        android:id="@+id/card">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="20dp"
             android:text="NOMBRE"
             android:id="@+id/txtNombre"/>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="20dp"
             android:text="DESCRIPCION"
             android:id="@+id/txtDescripcion"/>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="20dp"
             android:text="PRECIO DE VENTA"
             android:id="@+id/txtPrecio"/>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="20dp"
             android:text="STOCK"
             android:id="@+id/txtStock"/>
     </LinearLayout>

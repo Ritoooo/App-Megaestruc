@@ -56,7 +56,7 @@ public class ProductoInteractor {
                 ArrayList<Producto> producto =  response.body();
                 if(producto!=null)
                     listener.onSuccess(producto);
-                Log.e(TAG, producto.get(10).getNombre());
+                Log.e(TAG, producto.get(10).getDescripcion());
             }
             @Override
             public void onFailure(Call<ArrayList<Producto>> call, Throwable t) {
