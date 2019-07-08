@@ -37,10 +37,10 @@ public class ProductosAdaptador extends RecyclerView.Adapter<ProductosAdaptador.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        viewHolder.nombre.setText(data.get(position).getNombre());
-        viewHolder.descripcion.setText(data.get(position).getDescripcion());
-        viewHolder.preVen.setText(data.get(position).getDescripcion());
-        viewHolder.stock.setText(data.get(position).getNombre());
+        viewHolder.nombre.setText("Nombre: "+data.get(position).getNombre());
+        viewHolder.descripcion.setText("Descripción: "+data.get(position).getDescripcion());
+        viewHolder.preVen.setText(String.valueOf("Precio: "+data.get(position).getPreVen()));
+        viewHolder.stock.setText(String.valueOf("stock: "+data.get(position).getStock()));
     }
 
     @Override

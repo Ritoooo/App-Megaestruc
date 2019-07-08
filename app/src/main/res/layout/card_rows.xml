@@ -1,33 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="90dp">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="#E0E0F8"
+        android:layout_marginTop="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/card">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:text="NOMBRE"
-            android:id="@+id/txtNombre"/>
+            android:id="@+id/txtNombre"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:text="DESCRIPCION"
-            android:id="@+id/txtDescripcion"/>
+            android:id="@+id/txtDescripcion"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:text="PRECIO DE VENTA"
-            android:id="@+id/txtPrecio"/>
+            android:id="@+id/txtPrecio"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:text="STOCK"
-            android:id="@+id/txtStock"/>
+            android:id="@+id/txtStock"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"/>
     </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>
