@@ -1,7 +1,9 @@
-package com.megaestruc.megaestruc_app;
+package com.megaestruc.megaestruc_app.vista.CotizacionView;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.megaestruc.megaestruc_app.R;
 
 public class Producto extends AppCompatActivity {
 

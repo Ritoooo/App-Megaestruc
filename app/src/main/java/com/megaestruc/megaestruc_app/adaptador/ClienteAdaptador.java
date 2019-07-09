@@ -10,37 +10,37 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.megaestruc.megaestruc_app.R;
-import com.megaestruc.megaestruc_app.modelo.Producto;
+import com.megaestruc.megaestruc_app.modelo.Cliente;
 
 import java.util.List;
 
-public class ProductosAdaptador extends RecyclerView.Adapter<ProductosAdaptador.ViewHolder>{
+public class ClienteAdaptador extends RecyclerView.Adapter<ClienteAdaptador.ViewHolder>{
 
     private Context context;
-    private List<Producto> data;
+    private List<Cliente> data;
 
 
 
-    public ProductosAdaptador(Context context, List<Producto> data) {
+    public ClienteAdaptador(Context context, List<Cliente> data) {
         this.context = context;
         this.data = data;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ClienteAdaptador.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view;
         LayoutInflater inflater = LayoutInflater.from(context);
         view = inflater.inflate(R.layout.card_rows,viewGroup,false);
-        return new ViewHolder(view);
+        return new ClienteAdaptador.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        viewHolder.nombre.setText("Nombre: "+data.get(position).getNombre());
-        viewHolder.descripcion.setText("Descripción: "+data.get(position).getDescripcion());
-        viewHolder.preVen.setText(String.valueOf("Precio: "+data.get(position).getPreVen()));
-        viewHolder.stock.setText(String.valueOf("stock: "+data.get(position).getStock()));
+    public void onBindViewHolder(@NonNull ClienteAdaptador.ViewHolder viewHolder, int position) {
+        viewHolder.nombre.setText("Razón Social: "+data.get(position).getRaz_social());
+        viewHolder.descripcion.setText("Dirección: "+data.get(position).getDireccion());
+        viewHolder.preVen.setText("Teléfono: "+data.get(position).getTelefono());
+        viewHolder.stock.setText("Email: "+data.get(position).getEmail());
     }
 
     @Override

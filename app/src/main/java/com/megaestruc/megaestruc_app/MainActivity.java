@@ -13,7 +13,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.megaestruc.megaestruc_app.vista.ClienteView.Clientes;
+import com.megaestruc.megaestruc_app.vista.ClienteView.ListaCliente;
+import com.megaestruc.megaestruc_app.vista.CotizacionView.Cotizacion;
 import com.megaestruc.megaestruc_app.vista.ProductoView.ListaProductos;
 
 import org.json.JSONArray;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         queue = Volley.newRequestQueue(this);
 
-        obtenerDatosVolley();
+        //obtenerDatosVolley();
     }
 
     private void obtenerDatosVolley(){
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void irCoti(View view){  navegar(Cotizacion.class);    }
     public void irProd(View view){  navegar(ListaProductos.class);    }
-    public void irClie(View view){  navegar(Clientes.class);    }
+    public void irClie(View view){  navegar(ListaCliente.class);    }
 
     public void navegar(Class activity){startActivity(new Intent(this, activity));}
 }

@@ -1,4 +1,4 @@
-package com.megaestruc.megaestruc_app.modelo;
+package com.megaestruc.megaestruc_app.DAO;
 
 import android.util.Log;
 import android.widget.Toast;
@@ -13,6 +13,7 @@ import com.google.gson.JsonObject;
 import com.megaestruc.megaestruc_app.BuildConfig;
 import com.megaestruc.megaestruc_app.Interface.ProductoApi;
 import com.megaestruc.megaestruc_app.MainActivity;
+import com.megaestruc.megaestruc_app.modelo.Producto;
 
 import org.json.JSONArray;
 import org.json.JSONException;

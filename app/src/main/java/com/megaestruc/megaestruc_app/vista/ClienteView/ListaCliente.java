@@ -1,42 +1,42 @@
-package com.megaestruc.megaestruc_app.vista.ProductoView;
+package com.megaestruc.megaestruc_app.vista.ClienteView;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import android.support.v7.widget.RecyclerView;
-import com.megaestruc.megaestruc_app.Interface.ProductoInterface;
-import com.megaestruc.megaestruc_app.adaptador.ProductosAdaptador;
-import com.megaestruc.megaestruc_app.modelo.Producto;
+
+import com.megaestruc.megaestruc_app.DAO.ClienteDAO;
+import com.megaestruc.megaestruc_app.Interface.ClienteInterface;
 import com.megaestruc.megaestruc_app.R;
+import com.megaestruc.megaestruc_app.adaptador.ClienteAdaptador;
 import com.megaestruc.megaestruc_app.base.BaseActivity;
-import com.megaestruc.megaestruc_app.DAO.ProductoInteractor;
-import com.megaestruc.megaestruc_app.presentador.ListaProductosPresenter;
+import com.megaestruc.megaestruc_app.modelo.Cliente;
+import com.megaestruc.megaestruc_app.presentador.ListaClientePresenter;
 
 import java.util.ArrayList;
 
-public class ListaProductos extends BaseActivity<ListaProductosPresenter> implements ProductoInterface {
+public class ListaCliente extends BaseActivity<ListaClientePresenter> implements ClienteInterface {
 
     ProgressBar pgcargar;
     private RecyclerView rvLista;
-
     @NonNull
     @Override
-    protected ListaProductosPresenter createPresenter(@NonNull Context context) {
-        return new ListaProductosPresenter(this, new ProductoInteractor());
+    protected ListaClientePresenter createPresenter(@NonNull Context context) {
+        return new ListaClientePresenter(this, new ClienteDAO());
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lista_productos);
+        setContentView(R.layout.lista_cliente);
         pgcargar = (ProgressBar)findViewById(R.id.pgcargar);
         rvLista = findViewById(R.id.rvLista);
-        fetchProductos();
+        fetchClientes();
     }
 
     @Override
@@ -50,8 +50,9 @@ public class ListaProductos extends BaseActivity<ListaProductosPresenter> implem
     }
 
     @Override
-    public void mostrarProductos(ArrayList<Producto> productos) {
-        ProductosAdaptador adaptador = new ProductosAdaptador(this, productos);
+    public void mostrarClientes(ArrayList<Cliente> productos) {
+        Toast.makeText(ListaCliente.this, "hey: "+productos, Toast.LENGTH_SHORT).show();
+        ClienteAdaptador adaptador = new ClienteAdaptador(this, productos);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         rvLista.setLayoutManager(llm);
@@ -59,18 +60,13 @@ public class ListaProductos extends BaseActivity<ListaProductosPresenter> implem
     }
 
     @Override
-    public void listarProductos(Producto productoista) {
-
-    }
-
-    @Override
-    public void fetchProductos() {
+    public void fetchClientes() {
         presenter.fetchData();
     }
 
     @Override
-    public void mostrarError(){
-        Toast.makeText(ListaProductos.this, "ERRORES en Rettrofit", Toast.LENGTH_SHORT).show();
+    public void mostrarError() {
+        Toast.makeText(ListaCliente.this, "ERRORES en Rettrofit", Toast.LENGTH_SHORT).show();
         Log.d("RETROFITTTTTT","onFailure");
     }
 }
