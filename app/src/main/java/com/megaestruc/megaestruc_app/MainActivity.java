@@ -15,6 +15,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.megaestruc.megaestruc_app.vista.ClienteView.ListaCliente;
 import com.megaestruc.megaestruc_app.vista.CotizacionView.Cotizacion;
+import com.megaestruc.megaestruc_app.vista.CotizacionView.ListaCotizacionProducto;
 import com.megaestruc.megaestruc_app.vista.ProductoView.ListaProductos;
 
 import org.json.JSONArray;
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         queue.add(request);
     }
 
-    public void irCoti(View view){  navegar(Cotizacion.class);    }
+    public void irCoti(View view){  navegar(ListaCotizacionProducto.class);    }
     public void irProd(View view){  navegar(ListaProductos.class);    }
     public void irClie(View view){  navegar(ListaCliente.class);    }
 

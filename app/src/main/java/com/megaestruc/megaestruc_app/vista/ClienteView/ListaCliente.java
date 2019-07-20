@@ -51,7 +51,6 @@ public class ListaCliente extends BaseActivity<ListaClientePresenter> implements
 
     @Override
     public void mostrarClientes(ArrayList<Cliente> productos) {
-        Toast.makeText(ListaCliente.this, "hey: "+productos, Toast.LENGTH_SHORT).show();
         ClienteAdaptador adaptador = new ClienteAdaptador(this, productos);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);

@@ -3,6 +3,7 @@ package com.megaestruc.megaestruc_app.adaptador;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,7 @@ public class ProductosAdaptador extends RecyclerView.Adapter<ProductosAdaptador.
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         viewHolder.nombre.setText("Nombre: "+data.get(position).getNombre());
         viewHolder.descripcion.setText("Descripción: "+data.get(position).getDescripcion());
+        //viewHolder.descripcion.setJustificationMode(Layout.JUSTIFICATION_MODE_INTER_WORD);
         viewHolder.preVen.setText(String.valueOf("Precio: "+data.get(position).getPreVen()));
         viewHolder.stock.setText(String.valueOf("stock: "+data.get(position).getStock()));
     }

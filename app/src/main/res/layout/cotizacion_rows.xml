@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="#E0E0F8"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/card">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="NOMBRE"
+                android:id="@+id/user_id"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="DESCRIPCION"
+                android:id="@+id/sub_tota"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="PRECIO DE VENTA"
+                android:id="@+id/igv"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="STOCK"
+                android:id="@+id/descuento"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="STOCK"
+                android:id="@+id/total"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
